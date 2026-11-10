@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found - LabCode</title>
+  <style>
+    body { margin: 0; padding: 2rem; color: #111; background: #fff; font: 16px/1.5 Arial, sans-serif; }
+    main { max-width: 56rem; margin: 0 auto; }
+    a { color: #0645ad; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Page not found</h1>
+    <p>This LabCode page does not exist.</p>
+    <p><a id="home-link" href="/">Return to LabCode</a></p>
+  </main>
+  <script>
+    const parts = window.location.pathname.split("/").filter(Boolean);
+    const collectionIndex = parts.indexOf("2321sadas");
+    const rootParts = collectionIndex >= 0
+      ? parts.slice(0, collectionIndex)
+      : parts.length > 1 ? parts.slice(0, 1) : [];
+    document.querySelector("#home-link").href = `/${rootParts.length ? `${rootParts.join("/")}/` : ""}`;
+  </script>
+</body>
+</html>
