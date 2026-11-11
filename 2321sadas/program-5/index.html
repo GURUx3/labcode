@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="../../">
+  <title>LabCode</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>LabCode</h1>
+    <section id="program-list" hidden aria-labelledby="collection-title">
+      <h2 id="collection-title"></h2>
+      <ul id="programs"></ul>
+    </section>
+    <section id="program-viewer" hidden aria-labelledby="program-title">
+      <h2 id="program-title"></h2>
+      <p><a id="back-link" href="">Back to Programs</a></p>
+      <button id="copy-button" type="button">Copy Code</button>
+      <p id="copy-status" role="status" aria-live="polite"></p>
+      <pre><code id="source-code"></code></pre>
+    </section>
+    <p id="error-message" role="alert" hidden></p>
+  </main>
+</body>
+</html>

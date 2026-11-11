@@ -21,6 +21,11 @@
         "id": "program-4",
         "title": "medical diagnosis",
         "file": "codes/2321sadas/program-4.py"
+      },
+      {
+        "id": "program-5",
+        "title": "prolog family tree",
+        "file": "codes/2321sadas/program-5.pl"
       }
     ]
   }
