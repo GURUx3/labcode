@@ -118,7 +118,7 @@ async function start() {
 
   let collections;
   try {
-    const response = await fetch(new URL("data/collections.json", rootUrl));
+    const response = await fetch(new URL("data/collections.json", rootUrl), { cache: "no-store" });
     if (!response.ok) {
       throw new Error(`Collections could not be loaded (HTTP ${response.status}).`);
     }
