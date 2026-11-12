@@ -26,6 +26,11 @@
         "id": "program-5",
         "title": "prolog family tree",
         "file": "codes/2321sadas/program-5.pl"
+      },
+      {
+        "id": "program-6",
+        "title": "Lisp Knight's Tour",
+        "file": "codes/2321sadas/program-6.lisp"
       }
     ]
   }

@@ -1,0 +1,30 @@
+(defun solve (board moves x y step n)
+  (setf (aref board x y) step)
+
+  (if (= step (* n n))
+      (return-from solve t))
+
+  (dolist (m moves)
+    (let ((nx (+ x (first m)))
+          (ny (+ y (second m))))
+      (when (and (>= nx 0) (< nx n)
+                 (>= ny 0) (< ny n)
+                 (= (aref board nx ny) 0))
+        (when (solve board moves nx ny (+ step 1) n)
+          (return-from solve t)))))
+
+  (setf (aref board x y) 0)
+  nil)
+
+(defun knight-tour (n)
+  (let ((board (make-array (list n n) :initial-element 0))
+        (moves '((2 1) (1 2) (-1 2) (-2 1)
+                 (-2 -1) (-1 -2) (1 -2) (2 -1))))
+    (if (solve board moves 0 0 1 n)
+        (dotimes (i n)
+          (dotimes (j n)
+            (format t "~3d" (aref board i j)))
+          (terpri))
+        (format t "No solution found!"))))
+
+(knight-tour 5)
