@@ -28,3 +28,5 @@
         (format t "No solution found!"))))
 
 (knight-tour 5)
+
+;; sbcl --script program.lisp
