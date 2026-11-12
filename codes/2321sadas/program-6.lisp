@@ -1,3 +1,4 @@
+
 (defun solve (board moves x y step n)
   (setf (aref board x y) step)
 
@@ -20,13 +21,18 @@
   (let ((board (make-array (list n n) :initial-element 0))
         (moves '((2 1) (1 2) (-1 2) (-2 1)
                  (-2 -1) (-1 -2) (1 -2) (2 -1))))
+
+    (format t "~%Knight's Tour: ~a x ~a~%" n n)
+
     (if (solve board moves 0 0 1 n)
         (dotimes (i n)
           (dotimes (j n)
-            (format t "~3d" (aref board i j)))
+            (format t "~4d " (aref board i j)))
           (terpri))
-        (format t "No solution found!"))))
+        (format t "No solution found!~%"))))
 
+(knight-tour 3)
 (knight-tour 5)
+(knight-tour 8)
 
 ;; sbcl --script program.lisp
