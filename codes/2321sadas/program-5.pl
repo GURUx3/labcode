@@ -1,58 +1,47 @@
+
 % Facts
-male(ram).
-male(raj).
-male(kumar).
+person(john,30).
+person(lisa,25).
+person(mike,35).
 
-female(sita).
-female(geetha).
-female(priya).
+hobby(john,reading).
+hobby(lisa,painting).
+hobby(mike,reading).
 
-parent(ram, raj).
-parent(sita, raj).
-
-parent(raj, kumar).
-parent(geetha, kumar).
-
-parent(kumar, priya).
+friend(john,lisa).
+friend(lisa,mike).
 
 % Rules
+adult(X) :-
+    person(X,A),
+    A >= 18.
 
-% X is a father of Y
-father(X,Y) :-
-    male(X),
-    parent(X,Y).
-
-% X is a mother of Y
-mother(X,Y) :-
-    female(X),
-    parent(X,Y).
-
-% X is a child of Y
-child(X,Y) :-
-    parent(Y,X).
-
-% X is a grandfather of Y
-grandfather(X,Y) :-
-    male(X),
-    parent(X,Z),
-    parent(Z,Y).
-
-% X is a grandmother of Y
-grandmother(X,Y) :-
-    female(X),
-    parent(X,Z),
-    parent(Z,Y).
-
-% X is a sibling of Y
-sibling(X,Y) :-
-    parent(Z,X),
-    parent(Z,Y),
+similar_hobbies(X,Y) :-
+    hobby(X,H),
+    hobby(Y,H),
     X \= Y.
 
-% X is an ancestor of Y
-ancestor(X,Y) :-
-    parent(X,Y).
+are_friends(X,Y) :- friend(X,Y).
+are_friends(X,Y) :- friend(Y,X).
 
-ancestor(X,Y) :-
-    parent(X,Z),
-    ancestor(Z,Y).
+oldest_person(X) :-
+    person(X,A),
+    \+ (person(_,B), B > A).
+
+check_name(X) :-
+    person(X,_).
+
+
+
+% adult(john).
+% adult(lisa).
+
+% similar_hobbies(john,mike).
+
+% are_friends(john,lisa).
+% are_friends(mike,lisa).
+
+% oldest_person(X).
+
+% check_name(john).
+% check_name(raj).
