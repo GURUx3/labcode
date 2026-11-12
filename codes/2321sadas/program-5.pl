@@ -31,6 +31,8 @@ oldest_person(X) :-
 friends_of(X,L) :-
     findall(Y, are_friends(X,Y), L).
 
+
+% swipl -s program.pl - run
 % Example queries
 % ?- adult(john).
 % ?- has_hobby(mike,hiking).
